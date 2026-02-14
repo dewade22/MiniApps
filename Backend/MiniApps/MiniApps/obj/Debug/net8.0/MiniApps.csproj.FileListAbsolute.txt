@@ -144,3 +144,10 @@ E:\C#\MiniApp\Backend\MiniApps\MiniApps\obj\Debug\net8.0\refint\MiniApps.dll
 E:\C#\MiniApp\Backend\MiniApps\MiniApps\obj\Debug\net8.0\MiniApps.pdb
 E:\C#\MiniApp\Backend\MiniApps\MiniApps\obj\Debug\net8.0\MiniApps.genruntimeconfig.cache
 E:\C#\MiniApp\Backend\MiniApps\MiniApps\obj\Debug\net8.0\ref\MiniApps.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\bin\Debug\net8.0\System.Web.Razor.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\bin\Debug\net8.0\System.Web.Helpers.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\bin\Debug\net8.0\System.Web.WebPages.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
+E:\C#\MiniApp\Backend\MiniApps\MiniApps\obj\Debug\net8.0\MiniApps.sourcelink.json

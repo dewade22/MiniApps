@@ -36,18 +36,14 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Uuid)
                 .HasMaxLength(100)
                 .HasColumnName("uuid");
-            entity.Property(e => e.Createdat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("createdat");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
             entity.Property(e => e.Createdby)
                 .HasMaxLength(100)
                 .HasColumnName("createdby");
             entity.Property(e => e.Rolename)
                 .HasMaxLength(100)
                 .HasColumnName("rolename");
-            entity.Property(e => e.Updatedat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("updatedat");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
             entity.Property(e => e.Updatedby)
                 .HasMaxLength(100)
                 .HasColumnName("updatedby");
@@ -66,9 +62,7 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Uuid)
                 .HasMaxLength(100)
                 .HasColumnName("uuid");
-            entity.Property(e => e.Createdat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("createdat");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
             entity.Property(e => e.Createdby)
                 .HasMaxLength(100)
                 .HasColumnName("createdby");
@@ -85,9 +79,7 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Timezoneid)
                 .HasMaxLength(100)
                 .HasColumnName("timezoneid");
-            entity.Property(e => e.Updatedat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("updatedat");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
             entity.Property(e => e.Updatedby)
                 .HasMaxLength(100)
                 .HasColumnName("updatedby");
@@ -102,18 +94,14 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Uuid)
                 .HasMaxLength(100)
                 .HasColumnName("uuid");
-            entity.Property(e => e.Createdat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("createdat");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
             entity.Property(e => e.Createdby)
                 .HasMaxLength(100)
                 .HasColumnName("createdby");
             entity.Property(e => e.Roleuuid)
                 .HasMaxLength(100)
                 .HasColumnName("roleuuid");
-            entity.Property(e => e.Updatedat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("updatedat");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
             entity.Property(e => e.Updatedby)
                 .HasMaxLength(100)
                 .HasColumnName("updatedby");
@@ -139,18 +127,14 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Uuid)
                 .HasMaxLength(100)
                 .HasColumnName("uuid");
-            entity.Property(e => e.Createdat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("createdat");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
             entity.Property(e => e.Createdby)
                 .HasMaxLength(100)
                 .HasColumnName("createdby");
             entity.Property(e => e.Password)
                 .HasMaxLength(200)
                 .HasColumnName("password");
-            entity.Property(e => e.Updatedat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("updatedat");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
             entity.Property(e => e.Updatedby)
                 .HasMaxLength(100)
                 .HasColumnName("updatedby");
@@ -172,16 +156,12 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Uuid)
                 .HasMaxLength(100)
                 .HasColumnName("uuid");
-            entity.Property(e => e.Createdat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("createdat");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
             entity.Property(e => e.Createdby)
                 .HasMaxLength(100)
                 .HasColumnName("createdby");
             entity.Property(e => e.Refreshtoken).HasColumnName("refreshtoken");
-            entity.Property(e => e.Updatedat)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("updatedat");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
             entity.Property(e => e.Updatedby)
                 .HasMaxLength(100)
                 .HasColumnName("updatedby");

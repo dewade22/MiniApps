@@ -2,9 +2,9 @@
     uuid varchar(100) PRIMARY KEY,
     rolename varchar(100) NOT NULL,
     createdby varchar(100) NOT NULL,
-    createdat timestamp NOT NULL,
+    createdat timestamp with time zone NOT NULL,
     updatedby varchar(100) NOT NULL,
-    updatedat timestamp NOT NULL
+    updatedat timestamp with time zone NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS com_useraccount (
@@ -15,9 +15,9 @@ CREATE TABLE IF NOT EXISTS com_useraccount (
     timezoneid varchar(100) NOT NULL,
     isarchived boolean NOT NULL,
     createdby varchar(100) NOT NULL,
-    createdat timestamp NOT NULL,
+    createdat timestamp with time zone NOT NULL,
     updatedby varchar(100) NOT NULL,
-    updatedat timestamp NOT NULL
+    updatedat timestamp with time zone NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_useraccount_email
@@ -28,9 +28,9 @@ CREATE TABLE IF NOT EXISTS com_userinrole (
     useruuid varchar(100) NOT NULL,
     roleuuid varchar(100) NOT NULL,
     createdby varchar(100) NOT NULL,
-    createdat timestamp NOT NULL,
+    createdat timestamp with time zone NOT NULL,
     updatedby varchar(100) NOT NULL,
-    updatedat timestamp NOT NULL,
+    updatedat timestamp with time zone NOT NULL,
     CONSTRAINT fk_userinrole_role
         FOREIGN KEY (roleuuid)
         REFERENCES com_roles(uuid)
@@ -46,9 +46,9 @@ CREATE TABLE IF NOT EXISTS com_usermembership (
     useruuid varchar(100) NOT NULL,
     password varchar(200) NOT NULL,
     createdby varchar(100) NOT NULL,
-    createdat timestamp NOT NULL,
+    createdat timestamp with time zone NOT NULL,
     updatedby varchar(100) NOT NULL,
-    updatedat timestamp NOT NULL,
+    updatedat timestamp with time zone NOT NULL,
     CONSTRAINT fk_membership_user
         FOREIGN KEY (useruuid)
         REFERENCES com_useraccount(uuid)
@@ -60,9 +60,9 @@ CREATE TABLE IF NOT EXISTS com_userrefreshtoken (
     useruuid varchar(100) NOT NULL,
     refreshtoken text NOT NULL,
     createdby varchar(100) NOT NULL,
-    createdat timestamp NOT NULL,
+    createdat timestamp with time zone NOT NULL,
     updatedby varchar(100) NOT NULL,
-    updatedat timestamp NOT NULL,
+    updatedat timestamp with time zone NOT NULL,
     CONSTRAINT fk_refreshtoken_user
         FOREIGN KEY (useruuid)
         REFERENCES com_useraccount(uuid)

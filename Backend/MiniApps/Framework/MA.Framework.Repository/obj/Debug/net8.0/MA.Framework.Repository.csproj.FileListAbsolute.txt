@@ -15,3 +15,4 @@ E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Repository\obj\Debug\net8.
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Repository\obj\Debug\net8.0\refint\MA.Framework.Repository.dll
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Repository\obj\Debug\net8.0\MA.Framework.Repository.pdb
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Repository\obj\Debug\net8.0\ref\MA.Framework.Repository.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Repository\obj\Debug\net8.0\MA.Framework.Repository.sourcelink.json

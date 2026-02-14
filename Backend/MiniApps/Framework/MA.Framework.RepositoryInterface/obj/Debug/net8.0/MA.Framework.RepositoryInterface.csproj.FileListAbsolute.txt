@@ -9,3 +9,4 @@ E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\De
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\refint\MA.Framework.RepositoryInterface.dll
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.pdb
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\ref\MA.Framework.RepositoryInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.sourcelink.json

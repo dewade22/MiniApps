@@ -15,6 +15,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MiniApps.DataAccess;
+using MiniApps.DataAccess.Application;
 using MiniApps.Infrastructure.Swagger;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -149,8 +150,8 @@ namespace MiniApps
             services.Configure<InternalJwtConfig>(this.Configuration.GetSection(InternalJwtConfig.jwt));
 
 
-            //services.AddDbContext<ApplicationContext>(options =>
-            //    options.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationContext>(options =>
+                options.UseNpgsql(this.Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
             // Add DI here

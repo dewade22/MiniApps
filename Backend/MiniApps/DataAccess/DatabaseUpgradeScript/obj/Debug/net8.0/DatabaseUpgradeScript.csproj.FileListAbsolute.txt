@@ -33,3 +33,4 @@ E:\C#\MiniApp\Backend\MiniApps\DataAccess\DatabaseUpgradeScript\obj\Debug\net8.0
 E:\C#\MiniApp\Backend\MiniApps\DataAccess\DatabaseUpgradeScript\obj\Debug\net8.0\DatabaseUpgradeScript.pdb
 E:\C#\MiniApp\Backend\MiniApps\DataAccess\DatabaseUpgradeScript\obj\Debug\net8.0\DatabaseUpgradeScript.genruntimeconfig.cache
 E:\C#\MiniApp\Backend\MiniApps\DataAccess\DatabaseUpgradeScript\obj\Debug\net8.0\ref\DatabaseUpgradeScript.dll
+E:\C#\MiniApp\Backend\MiniApps\DataAccess\DatabaseUpgradeScript\obj\Debug\net8.0\DatabaseUpgradeScript.sourcelink.json

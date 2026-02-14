@@ -10,3 +10,4 @@ E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\ne
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\refint\MA.Framework.Authorization.dll
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.pdb
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\ref\MA.Framework.Authorization.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.sourcelink.json

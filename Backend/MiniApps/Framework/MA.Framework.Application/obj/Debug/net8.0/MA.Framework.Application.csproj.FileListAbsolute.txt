@@ -17,3 +17,4 @@ E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Application\obj\Debug\net8
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Application\obj\Debug\net8.0\refint\MA.Framework.Application.dll
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Application\obj\Debug\net8.0\MA.Framework.Application.pdb
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Application\obj\Debug\net8.0\ref\MA.Framework.Application.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Application\obj\Debug\net8.0\MA.Framework.Application.sourcelink.json

@@ -61,11 +61,47 @@ namespace MiniApps.Core.Resource.UserAccount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to User with email address {0} already registered.
+        /// </summary>
+        public static string CreateUser_EmailExist {
+            get {
+                return ResourceManager.GetString("CreateUser_EmailExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to generate token.
         /// </summary>
         public static string Token_FailedToGenerate {
             get {
                 return ResourceManager.GetString("Token_FailedToGenerate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User has been archived.
+        /// </summary>
+        public static string User_Archived {
+            get {
+                return ResourceManager.GetString("User_Archived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User with email address {0} not registered in the system.
+        /// </summary>
+        public static string User_NotRegistered {
+            get {
+                return ResourceManager.GetString("User_NotRegistered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password is invalid.
+        /// </summary>
+        public static string User_WrongPassword {
+            get {
+                return ResourceManager.GetString("User_WrongPassword", resourceCulture);
             }
         }
         
@@ -84,6 +120,15 @@ namespace MiniApps.Core.Resource.UserAccount {
         public static string UserEmail_NotFound {
             get {
                 return ResourceManager.GetString("UserEmail_NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This user not have a role.
+        /// </summary>
+        public static string UserInRole_NotFound {
+            get {
+                return ResourceManager.GetString("UserInRole_NotFound", resourceCulture);
             }
         }
     }

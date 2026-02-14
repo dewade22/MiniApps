@@ -9,3 +9,4 @@ E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Dto\obj\Debug\net8.0\MA.Fr
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Dto\obj\Debug\net8.0\refint\MA.Framework.Dto.dll
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Dto\obj\Debug\net8.0\MA.Framework.Dto.pdb
 E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Dto\obj\Debug\net8.0\ref\MA.Framework.Dto.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Dto\obj\Debug\net8.0\MA.Framework.Dto.sourcelink.json

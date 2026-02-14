@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DatabaseUpgradeScript")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9882169806d88fc6edfa3d5fea51dd29126385c")]
 [assembly: System.Reflection.AssemblyProductAttribute("DatabaseUpgradeScript")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DatabaseUpgradeScript")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

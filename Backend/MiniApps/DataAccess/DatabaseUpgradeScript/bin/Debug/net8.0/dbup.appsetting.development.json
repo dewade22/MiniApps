@@ -1,5 +1,5 @@
 ﻿{
   "ConnectionStrings": {
-    "DefaultConnection":  "server=.\\SQLExpress;user=sa;password=password;database=TicketingUserAccount;encrypt=false;"
+    "DefaultConnection": "Host=localhost;Port=5432;Database=MiniApps;Username=postgres;Password=password"
   }
 }
