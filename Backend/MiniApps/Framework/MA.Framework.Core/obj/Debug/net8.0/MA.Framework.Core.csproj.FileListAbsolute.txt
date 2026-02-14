@@ -1,0 +1,13 @@
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\bin\Debug\net8.0\MA.Framework.Core.deps.json
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\bin\Debug\net8.0\MA.Framework.Core.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\bin\Debug\net8.0\MA.Framework.Core.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.Resource.GeneralResource.resources
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.csproj.GenerateResource.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.AssemblyInfoInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.AssemblyInfo.cs
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.csproj.CoreCompileInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\refint\MA.Framework.Core.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\MA.Framework.Core.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Core\obj\Debug\net8.0\ref\MA.Framework.Core.dll

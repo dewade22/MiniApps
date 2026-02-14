@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MA.Framework.Dto\MA.Framework.Dto.csproj" />
+    <ProjectReference Include="..\MA.Framework.RepositoryInterface\MA.Framework.RepositoryInterface.csproj" />
+    <ProjectReference Include="..\MA.Framework.ServiceInterface\MA.Framework.ServiceInterface.csproj" />
+  </ItemGroup>
+
+</Project>

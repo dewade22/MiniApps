@@ -1,0 +1,15 @@
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\bin\Debug\net8.0\MA.Framework.ServiceInterface.deps.json
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\bin\Debug\net8.0\MA.Framework.ServiceInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\bin\Debug\net8.0\MA.Framework.ServiceInterface.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\bin\Debug\net8.0\MA.Framework.Core.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\bin\Debug\net8.0\MA.Framework.Core.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.csproj.AssemblyReference.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.AssemblyInfoInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.AssemblyInfo.cs
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.csproj.CoreCompileInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Frame.9B3657F6.Up2Date
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\refint\MA.Framework.ServiceInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\MA.Framework.ServiceInterface.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.ServiceInterface\obj\Debug\net8.0\ref\MA.Framework.ServiceInterface.dll

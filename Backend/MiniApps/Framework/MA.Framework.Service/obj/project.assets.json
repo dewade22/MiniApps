@@ -1,0 +1,153 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "MA.Framework.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MA.Framework.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MA.Framework.Core.dll": {}
+        }
+      },
+      "MA.Framework.Dto/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MA.Framework.Dto.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MA.Framework.Dto.dll": {}
+        }
+      },
+      "MA.Framework.RepositoryInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MA.Framework.RepositoryInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MA.Framework.RepositoryInterface.dll": {}
+        }
+      },
+      "MA.Framework.ServiceInterface/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "MA.Framework.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MA.Framework.ServiceInterface.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MA.Framework.ServiceInterface.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MA.Framework.Core/1.0.0": {
+      "type": "project",
+      "path": "../MA.Framework.Core/MA.Framework.Core.csproj",
+      "msbuildProject": "../MA.Framework.Core/MA.Framework.Core.csproj"
+    },
+    "MA.Framework.Dto/1.0.0": {
+      "type": "project",
+      "path": "../MA.Framework.Dto/MA.Framework.Dto.csproj",
+      "msbuildProject": "../MA.Framework.Dto/MA.Framework.Dto.csproj"
+    },
+    "MA.Framework.RepositoryInterface/1.0.0": {
+      "type": "project",
+      "path": "../MA.Framework.RepositoryInterface/MA.Framework.RepositoryInterface.csproj",
+      "msbuildProject": "../MA.Framework.RepositoryInterface/MA.Framework.RepositoryInterface.csproj"
+    },
+    "MA.Framework.ServiceInterface/1.0.0": {
+      "type": "project",
+      "path": "../MA.Framework.ServiceInterface/MA.Framework.ServiceInterface.csproj",
+      "msbuildProject": "../MA.Framework.ServiceInterface/MA.Framework.ServiceInterface.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "MA.Framework.Dto >= 1.0.0",
+      "MA.Framework.RepositoryInterface >= 1.0.0",
+      "MA.Framework.ServiceInterface >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Dewa Dwi\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.Service\\MA.Framework.Service.csproj",
+      "projectName": "MA.Framework.Service",
+      "projectPath": "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.Service\\MA.Framework.Service.csproj",
+      "packagesPath": "C:\\Users\\Dewa Dwi\\.nuget\\packages\\",
+      "outputPath": "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.Service\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\Dewa Dwi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.Dto\\MA.Framework.Dto.csproj": {
+              "projectPath": "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.Dto\\MA.Framework.Dto.csproj"
+            },
+            "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.RepositoryInterface\\MA.Framework.RepositoryInterface.csproj": {
+              "projectPath": "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.RepositoryInterface\\MA.Framework.RepositoryInterface.csproj"
+            },
+            "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.ServiceInterface\\MA.Framework.ServiceInterface.csproj": {
+              "projectPath": "E:\\C#\\MiniApp\\Backend\\MiniApps\\Framework\\MA.Framework.ServiceInterface\\MA.Framework.ServiceInterface.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\bin\Debug\net8.0\MA.Framework.Authorization.deps.json
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\bin\Debug\net8.0\MA.Framework.Authorization.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\bin\Debug\net8.0\MA.Framework.Authorization.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.csproj.AssemblyReference.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.AssemblyInfoInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.AssemblyInfo.cs
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.csproj.CoreCompileInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\refint\MA.Framework.Authorization.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\MA.Framework.Authorization.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.Authorization\obj\Debug\net8.0\ref\MA.Framework.Authorization.dll

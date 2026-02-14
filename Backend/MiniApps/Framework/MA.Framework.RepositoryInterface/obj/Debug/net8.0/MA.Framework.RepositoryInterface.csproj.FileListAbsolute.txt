@@ -1,0 +1,11 @@
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\bin\Debug\net8.0\MA.Framework.RepositoryInterface.deps.json
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\bin\Debug\net8.0\MA.Framework.RepositoryInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\bin\Debug\net8.0\MA.Framework.RepositoryInterface.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.GeneratedMSBuildEditorConfig.editorconfig
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.AssemblyInfoInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.AssemblyInfo.cs
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.csproj.CoreCompileInputs.cache
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\refint\MA.Framework.RepositoryInterface.dll
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\MA.Framework.RepositoryInterface.pdb
+E:\C#\MiniApp\Backend\MiniApps\Framework\MA.Framework.RepositoryInterface\obj\Debug\net8.0\ref\MA.Framework.RepositoryInterface.dll

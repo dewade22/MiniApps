@@ -1,0 +1,5 @@
+﻿{
+  "ConnectionStrings": {
+    "DefaultConnection":  "server=.\\SQLExpress;user=sa;password=password;database=TicketingUserAccount;encrypt=false;"
+  }
+}
