@@ -43,6 +43,14 @@ namespace MiniApps.Controllers.UserManagement
         }
 
         [HttpGet]
+        [AllowAnonymous]
+        [Route("/v{version:apiversion}/user-account/ping")]
+        public async Task<IActionResult> PingEndpoint()
+        {
+            return await Task.FromResult(Ok());
+        }
+
+        [HttpGet]
         [Authorize(Policy.Administrator)]
         [Route("/v{version:apiversion}/user-account/{emailAddress}")]
         public async Task<IActionResult> ReadUserByEmailAddressAsync([FromRoute][Required] string emailAddress)
@@ -265,9 +273,9 @@ namespace MiniApps.Controllers.UserManagement
             return new OkObjectResult(tokenResponse);
         }
 
-        private async void DeleteExpiredRefreshToken(string uuid)
+        private void DeleteExpiredRefreshToken(string uuid)
         {
-            await this._userRefreshTokenService.DeleteExpiredRefreshTokenAsync(uuid);
+            this._userRefreshTokenService.DeleteExpiredRefreshTokenAsync(uuid).GetAwaiter().GetResult();
         }
 
         #endregion

@@ -25,10 +25,10 @@ namespace DatabaseUpgradeScript
             {
                 switch (info.Split('=')[0])
                 {
-                    case "server":
+                    case "Host":
                         Console.WriteLine("Data Source : " + info.Split('=')[1]);
                         break;
-                    case "database":
+                    case "Database":
                         Console.WriteLine("DB Name : " + info.Split('=')[1]);
                         break;
                     default:
