@@ -115,6 +115,15 @@ namespace MiniApps.Core.Resource.UserAccount {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Couldn&apos;t get user with refresh token {0}.
+        /// </summary>
+        public static string UserAccount_RefreshTokenNotFound {
+            get {
+                return ResourceManager.GetString("UserAccount_RefreshTokenNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to User with email address {0} cannot be found.
         /// </summary>
         public static string UserEmail_NotFound {

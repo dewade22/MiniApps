@@ -126,6 +126,9 @@
   <data name="UserAccount_EmptyEmail" xml:space="preserve">
     <value>Email is empty</value>
   </data>
+  <data name="UserAccount_RefreshTokenNotFound" xml:space="preserve">
+    <value>Couldn't get user with refresh token {0}</value>
+  </data>
   <data name="UserEmail_NotFound" xml:space="preserve">
     <value>User with email address {0} cannot be found</value>
   </data>

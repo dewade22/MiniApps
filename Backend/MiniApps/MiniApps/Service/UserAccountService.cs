@@ -49,6 +49,22 @@ namespace MiniApps.Service
             return response;
         }
 
+        public async Task<GenericResponse<UserAccountDto>> ReadUserByRefreshTokenAsync(string refreshToken)
+        {
+            var response = new GenericResponse<UserAccountDto>();
+
+            var result = await this._repository.ReadUserByRefreshTokenAsync(refreshToken);
+            if (result == null)
+            {
+                response.AddErrorMessage(string.Format(UserAccountResource.UserAccount_RefreshTokenNotFound, refreshToken));
+                return response;
+            }
+
+            response.Data = result;
+
+            return response;
+        }
+
         #endregion
 
         #region Sync

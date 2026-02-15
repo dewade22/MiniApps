@@ -44,6 +44,22 @@ namespace MiniApps.Repository
             return entity != null;
         }
 
+        public async Task<UserAccountDto> ReadUserByRefreshTokenAsync(string refreshToken)
+        {
+            var dbSet = this.Context.Set<ComUseraccount>();
+            var entity = await dbSet
+                .Include(x => x.ComUserrefreshtokens)
+                .FirstOrDefaultAsync(item => item.ComUserrefreshtokens.Any(rt => rt.Refreshtoken == refreshToken));
+            if (entity == null)
+            {
+                return null;
+            }
+
+            var dto = new UserAccountDto();
+            EntityToDtoWithRelation(entity, dto);
+            return dto;
+        }
+
         #endregion
 
         #region Protected

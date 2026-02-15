@@ -14,6 +14,8 @@ namespace MiniApps.ServiceInterface
 
         Task<GenericResponse<bool>> IsEmailExistAsync(string emailAddress);
 
+        Task<GenericResponse<UserAccountDto>> ReadUserByRefreshTokenAsync(string refreshToken);
+
         #endregion
 
         #region Sync

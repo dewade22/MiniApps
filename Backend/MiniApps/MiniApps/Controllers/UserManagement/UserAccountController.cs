@@ -236,6 +236,29 @@ namespace MiniApps.Controllers.UserManagement
             return await this.CreateTokenSignInUser(userResponse.Data);
         }
 
+        [HttpPost]
+        [Route("/v{version:apiversion}/user-account/refresh")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest model)
+        {
+            var refreshTokenResponse = await this._userAccountService.ReadUserByRefreshTokenAsync(model.RefreshToken);
+            if (refreshTokenResponse.IsError())
+            {
+                return this.GetApiError(refreshTokenResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.NotFound);
+            }
+
+            var userResponse = await this._userAccountService.ReadUserByEmailAddressAsync(refreshTokenResponse.Data.EmailAddress);
+            if (userResponse.IsError())
+            {
+                return this.GetApiError(new[] { UserAccountResource.User_NotRegistered }, (int)HttpStatusCode.BadRequest);
+            }
+
+            if (userResponse.Data.IsArchived)
+            {
+                return this.GetApiError(new[] { UserAccountResource.User_Archived }, (int)HttpStatusCode.BadRequest);
+            }
+
+            return await this.CreateTokenSignInUser(userResponse.Data);
+        }
 
         #region private Methods
 
