@@ -104,6 +104,30 @@ namespace MA.Framework.Repository
             }
         }
 
+        public virtual async Task<List<TDto>> SearchAsync()
+        {
+            try
+            {
+                var dbSet = this.Context.Set<TEntity>();
+
+                var entities = await dbSet.AsNoTracking().ToListAsync();
+                if (entities == null) return null;
+                var dtos = new List<TDto>();
+                foreach (var entity in entities)
+                {
+                    var dto = new TDto();
+                    EntityToDto(entity, dto);
+                    dtos.Add(dto);
+                }
+
+                return dtos;
+            }
+            catch (Exception ex)
+            {
+                throw ex.InnerException;
+            }
+        }
+
         #endregion
 
         #region Public Sync

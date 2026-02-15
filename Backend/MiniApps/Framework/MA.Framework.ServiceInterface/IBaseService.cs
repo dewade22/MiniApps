@@ -15,6 +15,8 @@ namespace MA.Framework.ServiceInterface
 
         Task<GenericResponse<TDto>> DeleteAsync(GenericRequest<TDtoType> request);
 
+        Task<GenericCollectionResponse<TDto>> SearchAsync();
+
         #endregion
 
         #region Public Sync

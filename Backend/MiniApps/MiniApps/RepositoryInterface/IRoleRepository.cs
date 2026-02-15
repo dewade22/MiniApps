@@ -5,5 +5,6 @@ namespace MiniApps.RepositoryInterface
 {
     public interface IRoleRepository : IBaseRepository<RolesDto>
     {
+        Task<RolesDto> ReadByName(string name);
     }
 }

@@ -12,6 +12,8 @@
 
         Task<TDto> DeleteAsync(object primaryKey);
 
+        Task<List<TDto>> SearchAsync();
+
         #endregion
 
         #region Public Sync

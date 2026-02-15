@@ -87,6 +87,28 @@ namespace MA.Framework.Service
             return response;
         }
 
+        public virtual async Task<GenericCollectionResponse<TDto>> SearchAsync()
+        {
+            var response = new GenericCollectionResponse<TDto>();
+            if (response.IsError()) return response;
+
+            var dtos = await _repository.SearchAsync();
+            if (dtos == null)
+            {
+                response.AddErrorMessage(GeneralResource.Item_UpdateNotFound);
+                return response;
+            }
+
+            foreach (var dto in dtos)
+            {
+                response.DtoCollection.Add(dto);
+            }
+
+            response.AddInfoMessage(GeneralResource.Info_Saved);
+
+            return response;
+        }
+
         #endregion
 
         #region Public Sync
