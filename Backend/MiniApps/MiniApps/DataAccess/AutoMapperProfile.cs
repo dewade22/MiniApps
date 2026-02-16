@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MiniApps.DataAccess.Application;
-using MiniApps.Dto;
+using MiniApps.Dto.Academic;
+using MiniApps.Dto.Common;
 
 namespace MiniApps.DataAccess
 {
@@ -13,6 +14,8 @@ namespace MiniApps.DataAccess
             this.CreateMap<ComRole, RolesDto>().ReverseMap();
             this.CreateMap<ComUsermembership, UserMembershipDto>().ReverseMap();
             this.CreateMap<ComUserrefreshtoken, UserRefreshTokenDto>().ReverseMap();
+
+            this.CreateMap<AcdmGrade, GradeDto>().ReverseMap();
         }
     }
 }

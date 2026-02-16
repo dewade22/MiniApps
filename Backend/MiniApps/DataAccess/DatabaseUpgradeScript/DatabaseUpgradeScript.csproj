@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Academic\Feb26\Script001 - Create Table acdm_grades.sql" />
     <EmbeddedResource Include="UserAccount\Feb26\Script001 - Create Table.sql" />
     <EmbeddedResource Include="UserAccount\Feb26\Script002 - Insert Data into Roles.sql" />
   </ItemGroup>

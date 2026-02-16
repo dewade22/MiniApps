@@ -6,12 +6,12 @@ using MA.Framework.ServiceInterface.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniApps.Core.Resource.UserAccount;
-using MiniApps.Dto;
+using MiniApps.Dto.Common;
 using MiniApps.Helper;
 using MiniApps.Model.Authentication;
 using MiniApps.Model.Request;
 using MiniApps.Model.Request.UserManagement;
-using MiniApps.ServiceInterface;
+using MiniApps.ServiceInterface.Common;
 using System.ComponentModel.DataAnnotations;
 using System.Net;
 

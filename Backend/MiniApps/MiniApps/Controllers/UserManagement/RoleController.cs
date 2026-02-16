@@ -5,9 +5,9 @@ using MA.Framework.Core.Resource;
 using MA.Framework.ServiceInterface.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MiniApps.Dto;
+using MiniApps.Dto.Common;
 using MiniApps.Model.Request.UserManagement;
-using MiniApps.ServiceInterface;
+using MiniApps.ServiceInterface.Common;
 using System.Net;
 
 namespace MiniApps.Controllers.UserManagement

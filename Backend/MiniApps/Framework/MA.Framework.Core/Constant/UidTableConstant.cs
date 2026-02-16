@@ -7,5 +7,7 @@
         public const string UserInRole = "userinrole";
         public const string UserMembership = "usermembership";
         public const string UserRefreshToken = "userrefreshtoken";
+
+        public const string grade = "academicgrade";
     }
 }

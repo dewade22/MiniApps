@@ -32,7 +32,7 @@ namespace MiniApps
         }
 
         public IConfiguration Configuration { get; }
-        
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
@@ -118,32 +118,29 @@ namespace MiniApps
             // Add Authorization service Here
             services.AddAuthorization(options =>
             {
-                options.DefaultPolicy = new AuthorizationPolicyBuilder()
+                var roleClaim = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role";
+
+                AuthorizationPolicy BuildPolicy(params string[] roles) =>
+                    new AuthorizationPolicyBuilder("LocalIdentity")
+                        .RequireAuthenticatedUser()
+                        .RequireClaim(roleClaim, roles)
+                        .Build();
+
+                options.DefaultPolicy = new AuthorizationPolicyBuilder("LocalIdentity")
                     .RequireAuthenticatedUser()
-                    .AddAuthenticationSchemes("LocalIdentity")
                     .Build();
 
-                options.AddPolicy(Policy.AllRoles, new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .AddAuthenticationSchemes("LocalIdentity")
-                    .RequireClaim(
-                        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role",
-                        new List<string>()
-                        {
-                            Policy.Administrator
-                        })
-                    .Build());
+                var policies = new Dictionary<string, string[]>
+                {
+                    { Policy.AllRoles, new[] { Policy.Administrator, Policy.Student, Policy.Teacher } },
+                    { Policy.Administrator, new[] { Policy.Administrator } },
+                    { Policy.TeacherStudent, new[] { Policy.Teacher, Policy.Student } },
+                    { Policy.Teacher, new[] { Policy.Teacher } },
+                    { Policy.Student, new[] { Policy.Student } },
+                };
 
-                options.AddPolicy(Policy.Administrator, new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .AddAuthenticationSchemes("LocalIdentity")
-                    .RequireClaim(
-                        "http://schemas.microsoft.com/ws/2008/06/identity/claims/role",
-                        new List<string>()
-                        {
-                            Policy.Administrator,
-                        })
-                    .Build());
+                foreach (var policy in policies)
+                    options.AddPolicy(policy.Key, BuildPolicy(policy.Value));
             });
 
             services.AddSingleton<IAuthorizationHandler, HasScopeHandler>();
