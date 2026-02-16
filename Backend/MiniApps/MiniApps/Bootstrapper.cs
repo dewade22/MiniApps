@@ -16,6 +16,7 @@ namespace MiniApps
             services.AddTransient<IGradeRepository, GradeRepository>();
             services.AddTransient<IJwtTokenManagerRepository, JwtTokenManagerRepository>();
             services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<ISubjectRepository, SubjectRepository>();
             services.AddTransient<IUserAccountRepository, UserAccountRepository>();
             services.AddTransient<IUserInRoleRepository, UserInRoleRepository>();
             services.AddTransient<IUserMembershipRepository, UserMembershipRepository>();
@@ -26,6 +27,7 @@ namespace MiniApps
         {
             services.AddScoped<IGradeService, GradeService>();
             services.AddScoped<IRoleService, RoleService>();
+            services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<IUserAccountService, UserAccountService>();
             services.AddScoped<IUserInRoleService, UserInRoleService>();
             services.AddScoped<IUserMembershipService, UserMembershipService>();

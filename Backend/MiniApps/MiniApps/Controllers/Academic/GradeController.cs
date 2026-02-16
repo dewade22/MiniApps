@@ -60,7 +60,7 @@ namespace MiniApps.Controllers.Academic
             {
                 Data = new GradeDto
                 {
-                    Uuid = this.GenerateUuid(UidTableConstant.grade),
+                    Uuid = this.GenerateUuid(UidTableConstant.Grade),
                     Name = model.GradeName,
                 }
             };

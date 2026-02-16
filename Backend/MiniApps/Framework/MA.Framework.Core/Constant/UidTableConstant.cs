@@ -8,6 +8,7 @@
         public const string UserMembership = "usermembership";
         public const string UserRefreshToken = "userrefreshtoken";
 
-        public const string grade = "academicgrade";
+        public const string Grade = "academicgrade";
+        public const string Subject = "academicsubject";
     }
 }
