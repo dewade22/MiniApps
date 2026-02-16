@@ -8,12 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="UserAccount\Feb26\Script001 - Create Table.sql" />
-    <None Remove="UserAccount\Feb26\Script002 - Insert Data into Roles.sql" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Academic\Feb26\Script001 - Create Table acdm_grades.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script002 - Create Table acdm_subjects.sql" />
     <EmbeddedResource Include="UserAccount\Feb26\Script001 - Create Table.sql" />
     <EmbeddedResource Include="UserAccount\Feb26\Script002 - Insert Data into Roles.sql" />
   </ItemGroup>

@@ -16,6 +16,7 @@ namespace MiniApps.DataAccess
             this.CreateMap<ComUserrefreshtoken, UserRefreshTokenDto>().ReverseMap();
 
             this.CreateMap<AcdmGrade, GradeDto>().ReverseMap();
+            this.CreateMap<AcdmSubject, SubjectDto>().ReverseMap();
         }
     }
 }

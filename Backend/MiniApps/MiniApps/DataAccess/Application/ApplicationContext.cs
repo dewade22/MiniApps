@@ -17,6 +17,8 @@ public partial class ApplicationContext : DbContext
 
     public virtual DbSet<AcdmGrade> AcdmGrades { get; set; }
 
+    public virtual DbSet<AcdmSubject> AcdmSubjects { get; set; }
+
     public virtual DbSet<ComRole> ComRoles { get; set; }
 
     public virtual DbSet<ComUseraccount> ComUseraccounts { get; set; }
@@ -44,6 +46,28 @@ public partial class ApplicationContext : DbContext
                 .HasColumnName("createdby");
             entity.Property(e => e.Name)
                 .HasMaxLength(50)
+                .HasColumnName("name");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
+            entity.Property(e => e.Updatedby)
+                .HasMaxLength(100)
+                .HasColumnName("updatedby");
+        });
+
+        modelBuilder.Entity<AcdmSubject>(entity =>
+        {
+            entity.HasKey(e => e.Uuid).HasName("acdm_subjects_pkey");
+
+            entity.ToTable("acdm_subjects");
+
+            entity.Property(e => e.Uuid)
+                .HasMaxLength(100)
+                .HasColumnName("uuid");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
+            entity.Property(e => e.Createdby)
+                .HasMaxLength(100)
+                .HasColumnName("createdby");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
                 .HasColumnName("name");
             entity.Property(e => e.Updatedat).HasColumnName("updatedat");
             entity.Property(e => e.Updatedby)
