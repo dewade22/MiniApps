@@ -53,7 +53,7 @@ namespace MiniApps.Controllers.Academic
             var gradeResponse = await this._gradeService.ReadByName(model.GradeName);
             if (!gradeResponse.IsError())
             {
-                return this.Ok(gradeResponse.Data.Uuid);
+                return new OkObjectResult(gradeResponse.Data.Uuid);
             }
 
             var request = new GenericRequest<GradeDto>()
@@ -127,7 +127,7 @@ namespace MiniApps.Controllers.Academic
                 return this.GetApiError(updateResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.BadRequest);
             }
 
-            return this.Ok(updateResponse.Data.Uuid);
+            return new OkObjectResult(updateResponse.Data.Uuid);
         }
 
         [HttpDelete]

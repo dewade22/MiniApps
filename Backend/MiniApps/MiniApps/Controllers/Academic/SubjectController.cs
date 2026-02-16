@@ -67,7 +67,7 @@ namespace MiniApps.Controllers.Academic
             var subjectResponse = await this._subjectService.ReadByName(model.SubjectName);
             if (!subjectResponse.IsError())
             {
-                return this.Ok(subjectResponse.Data.Uuid);
+                return new OkObjectResult(subjectResponse.Data.Uuid);
             }
 
             var request = new GenericRequest<SubjectDto>()
@@ -126,7 +126,7 @@ namespace MiniApps.Controllers.Academic
                 return this.GetApiError(updateResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.BadRequest);
             }
 
-            return this.Ok(updateResponse.Data.Uuid);
+            return new OkObjectResult(updateResponse.Data.Uuid);
         }
 
         [HttpDelete]
