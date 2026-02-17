@@ -6,7 +6,6 @@ using MA.Framework.ServiceInterface.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MiniApps.Dto.Academic;
-using MiniApps.Dto.Common;
 using MiniApps.Model.Request.Grade;
 using MiniApps.ServiceInterface.Academic;
 using System.Net;
