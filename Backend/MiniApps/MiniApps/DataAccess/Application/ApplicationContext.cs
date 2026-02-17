@@ -19,6 +19,8 @@ public partial class ApplicationContext : DbContext
 
     public virtual DbSet<AcdmSubject> AcdmSubjects { get; set; }
 
+    public virtual DbSet<AcdmTopic> AcdmTopics { get; set; }
+
     public virtual DbSet<ComRole> ComRoles { get; set; }
 
     public virtual DbSet<ComUseraccount> ComUseraccounts { get; set; }
@@ -73,6 +75,36 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Updatedby)
                 .HasMaxLength(100)
                 .HasColumnName("updatedby");
+        });
+
+        modelBuilder.Entity<AcdmTopic>(entity =>
+        {
+            entity.HasKey(e => e.Uuid).HasName("acdm_topics_pkey");
+
+            entity.ToTable("acdm_topics");
+
+            entity.Property(e => e.Uuid)
+                .HasMaxLength(100)
+                .HasColumnName("uuid");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
+            entity.Property(e => e.Createdby)
+                .HasMaxLength(100)
+                .HasColumnName("createdby");
+            entity.Property(e => e.Name)
+                .HasMaxLength(100)
+                .HasColumnName("name");
+            entity.Property(e => e.SubjectUuid)
+                .HasMaxLength(100)
+                .HasColumnName("subject_uuid");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
+            entity.Property(e => e.Updatedby)
+                .HasMaxLength(100)
+                .HasColumnName("updatedby");
+
+            entity.HasOne(d => d.SubjectUu).WithMany(p => p.AcdmTopics)
+                .HasForeignKey(d => d.SubjectUuid)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("acdm_topics_subject_uuid_fkey");
         });
 
         modelBuilder.Entity<ComRole>(entity =>

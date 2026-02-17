@@ -1,6 +1,6 @@
 ﻿{
   "ConnectionStrings": {
     "DefaultConnection": "Host=localhost;Port=5432;Database=MiniApps;Username=postgres;Password=password"
-    //"DefaultConnection": "Host=db.kbldysnclviluxwoiflv.supabase.co;Database=postgres;Username=postgres;Password=dewaSPBS2026;SSL Mode=Require;Trust Server Certificate=true"
+    // "DefaultConnection": "Host=db.kbldysnclviluxwoiflv.supabase.co;Database=postgres;Username=postgres;Password=dewaSPBS2026;SSL Mode=Require;Trust Server Certificate=true"
   }
 }
