@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using MiniApps.Dto.Academic;
 using MiniApps.Model.Request.Grade;
 using MiniApps.ServiceInterface.Academic;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace MiniApps.Controllers.Academic
@@ -26,7 +27,7 @@ namespace MiniApps.Controllers.Academic
         }
 
         [HttpGet]
-        [Authorize(Policy.Administrator)]
+        [Authorize(Policy.AllRoles)]
         [Route("/v{version:apiversion}/grades")]
         public async Task<IActionResult> SearchGrades()
         {
@@ -82,9 +83,9 @@ namespace MiniApps.Controllers.Academic
         }
 
         [HttpGet]
-        [Authorize(Policy.Administrator)]
+        [Authorize(Policy.AllRoles)]
         [Route("/v{version:apiversion}/grade/{id}")]
-        public async Task<IActionResult> ReadGrade([FromRoute] string id)
+        public async Task<IActionResult> ReadGrade([FromRoute][Required] string id)
         {
             var request = new GenericRequest<string> { Data = id };
             var gradeResponse = await this._gradeService.ReadAsync(request);
@@ -99,7 +100,7 @@ namespace MiniApps.Controllers.Academic
         [HttpPut]
         [Authorize(Policy.Administrator)]
         [Route("/v{version:apiversion}/grade/{id}")]
-        public async Task<IActionResult> UpdateGrade([FromRoute] string id, [FromBody] GradeRequest model)
+        public async Task<IActionResult> UpdateGrade([FromRoute][Required] string id, [FromBody] GradeRequest model)
         {
             if (!ModelState.IsValid)
             {
@@ -132,7 +133,7 @@ namespace MiniApps.Controllers.Academic
         [HttpDelete]
         [Authorize(Policy.Administrator)]
         [Route("/v{version:apiversion}/grade/{id}")]
-        public async Task<IActionResult> DeleteGrade([FromRoute] string id)
+        public async Task<IActionResult> DeleteGrade([FromRoute][Required] string id)
         {
             var request = new GenericRequest<string> { Data = id };
             var gradeResponse = await this._gradeService.ReadAsync(request);

@@ -7,5 +7,7 @@ namespace MiniApps.ServiceInterface.Academic
     public interface ITopicService : IBaseService<TopicDto, string>
     {
         Task<GenericResponse<TopicDto>> ReadByNamAndSubject(string name, string subjectId);
+
+        Task<GenericCollectionResponse<TopicDto>> SearchAsync(string subjectId);
     }
 }

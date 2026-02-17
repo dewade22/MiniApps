@@ -10,5 +10,6 @@
 
         public const string Grade = "academicgrade";
         public const string Subject = "academicsubject";
+        public const string Topic = "academictopic";
     }
 }

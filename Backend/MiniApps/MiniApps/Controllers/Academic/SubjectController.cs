@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using MiniApps.Dto.Academic;
 using MiniApps.Model.Request.Grade;
 using MiniApps.ServiceInterface.Academic;
+using System.ComponentModel.DataAnnotations;
 using System.Net;
 
 namespace MiniApps.Controllers.Academic
@@ -42,7 +43,7 @@ namespace MiniApps.Controllers.Academic
         [HttpGet]
         [Authorize(Policy.AllRoles)]
         [Route("/v{version:apiversion}/subject/{id}")]
-        public async Task<IActionResult> ReadSubject([FromRoute] string id)
+        public async Task<IActionResult> ReadSubject([FromRoute][Required] string id)
         {
             var request = new GenericRequest<string> { Data = id };
             var subjectResponse = await this._subjectService.ReadAsync(request);
@@ -99,7 +100,7 @@ namespace MiniApps.Controllers.Academic
         [HttpPut]
         [Authorize(Policy.Administrator)]
         [Route("/v{version:apiversion}/subject/{id}")]
-        public async Task<IActionResult> UpdateGrade([FromRoute] string id, [FromBody] SubjectRequest model)
+        public async Task<IActionResult> UpdateGrade([FromRoute][Required] string id, [FromBody] SubjectRequest model)
         {
             if (!ModelState.IsValid)
             {
@@ -132,7 +133,7 @@ namespace MiniApps.Controllers.Academic
         [HttpDelete]
         [Authorize(Policy.Administrator)]
         [Route("/v{version:apiversion}/subject/{id}")]
-        public async Task<IActionResult> DeleteSubject([FromRoute] string id)
+        public async Task<IActionResult> DeleteSubject([FromRoute][Required] string id)
         {
             var request = new GenericRequest<string> { Data = id };
             var subjectResponse = await this._subjectService.ReadAsync(request);

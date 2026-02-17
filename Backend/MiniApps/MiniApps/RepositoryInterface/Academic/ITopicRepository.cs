@@ -6,5 +6,6 @@ namespace MiniApps.RepositoryInterface.Academic
     public interface ITopicRepository : IBaseRepository<TopicDto>
     {
         Task<TopicDto> ReadByNameAndSubject(string name, string subjectId);
+        Task<List<TopicDto>> SearchAsync(string subjectId);
     }
 }

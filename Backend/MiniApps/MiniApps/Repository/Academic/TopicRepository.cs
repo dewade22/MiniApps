@@ -28,5 +28,25 @@ namespace MiniApps.Repository.Academic
 
             return dto;
         }
+
+        public async Task<List<TopicDto>> SearchAsync(string subjectId)
+        {
+            var dbSet = Context.Set<AcdmTopic>();
+            var entities = await dbSet.Where(x =>x.SubjectUuid == subjectId).AsNoTracking().ToListAsync();
+            if (entities == null || !entities.Any())
+            {
+                return null;
+            }
+
+            var result = new List<TopicDto>();
+            foreach (var entity in entities)
+            {
+                var dto = new TopicDto();
+                EntityToDto(entity, dto);
+                result.Add(dto);
+            }
+
+            return result;
+        }
     }
 }

@@ -27,5 +27,23 @@ namespace MiniApps.Service.Academic
             response.Data = dto;
             return response;
         }
+
+        public async Task<GenericCollectionResponse<TopicDto>> SearchAsync(string subjectId)
+        {
+            var response = new GenericCollectionResponse<TopicDto>();
+            var dtos = await this._repository.SearchAsync(subjectId);
+            if (dtos == null)
+            {
+                response.AddErrorMessage(GeneralResource.Item_NotFound);
+                return response;
+            }
+
+            foreach (var dto in dtos)
+            {
+                response.DtoCollection.Add(dto);
+            }
+
+            return response;
+        }
     }
 }

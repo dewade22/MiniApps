@@ -10,6 +10,6 @@ namespace MiniApps.Model.Request.Academic
         public string TopicName { get; set; }
 
         [Required]
-        public string SubjectUuid { get; set; }
+        public string SubjectId { get; set; }
     }
 }
