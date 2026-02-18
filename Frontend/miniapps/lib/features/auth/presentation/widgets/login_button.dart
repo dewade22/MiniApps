@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/login_provider.dart';
+import '../../../home/presentation/home_page.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
@@ -17,7 +18,9 @@ class LoginButton extends StatelessWidget {
             ? () async {
               bool success = await provider.login();
               if (success && context.mounted) {
-                  Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (_) => const HomePage()),
+                  );
                 }
             }
             : null,

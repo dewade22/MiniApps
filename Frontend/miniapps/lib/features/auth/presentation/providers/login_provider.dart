@@ -27,12 +27,14 @@ class LoginProvider extends ChangeNotifier {
   void setEmail(String value) {
     _email = value;
     emailError = value.contains('@') ? null : "Email not valid";
+    loginError = null;
     notifyListeners();
   }
 
   void setPassword(String value) {
     _password = value;
     passwordError = value.length >= 6 ? null : "Minimum 6 character length";
+    loginError = null;
     notifyListeners();
   }
 
