@@ -151,6 +151,17 @@ namespace MiniApps
                 options.UseNpgsql(this.Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin", policy =>
+                {
+                    policy.SetIsOriginAllowed(origin =>
+                            new Uri(origin).Host == "localhost")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+            });
+
             // Add DI here
             Bootstrapper.SetupRepositories(services);
             Bootstrapper.SetupServices(services);
@@ -170,12 +181,11 @@ namespace MiniApps
                         options.SwaggerEndpoint($"/api-docs/{description.GroupName}/docs.json", description.GroupName.ToUpperInvariant());
                     }
                 });
-
-                app.UseCors("AllowOrigin");
             }
 
             app.UseExceptionHandler("/error");
             app.UseRouting();
+            app.UseCors("AllowOrigin");
             app.UseAuthentication();
             app.UseAuthorization();
 
