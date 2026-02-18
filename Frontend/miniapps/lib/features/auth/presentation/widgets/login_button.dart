@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/login_provider.dart';
-import '../../../home/presentation/home_page.dart';
+import '../../../../core/services/session_service.dart';
+import '../../../../core/navigation/app_router.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({super.key});
@@ -18,8 +19,9 @@ class LoginButton extends StatelessWidget {
             ? () async {
               bool success = await provider.login();
               if (success && context.mounted) {
+                final role = await SessionService().getUserRole();
                   Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (_) => const HomePage()),
+                    MaterialPageRoute(builder: (_) => appRouter(role)),
                   );
                 }
             }

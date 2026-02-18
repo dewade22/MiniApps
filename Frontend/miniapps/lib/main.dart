@@ -4,7 +4,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'core/services/session_service.dart';
 
 import 'features/auth/presentation/pages/login_page.dart';
-import 'features/home/presentation/home_page.dart';
+import 'core/navigation/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,9 +37,21 @@ class MyApp extends StatelessWidget {
             );
           }
 
-          return snapshot.data!
-              ? const HomePage()
-              : const LoginPage();
+          if (!snapshot.data!) {
+            return const LoginPage();
+          }
+          
+          return FutureBuilder<String?>(
+            future: SessionService().getUserRole(),
+            builder: (context, roleSnapshot) {
+              if (!roleSnapshot.hasData) {
+                return const Scaffold(
+                  body: Center(child: CircularProgressIndicator()),
+                );
+              }
+              return appRouter(roleSnapshot.data);
+           },
+          );
         },
       ),
     );
