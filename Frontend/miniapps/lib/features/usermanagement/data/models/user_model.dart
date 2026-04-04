@@ -16,4 +16,10 @@ class UserModel extends User {
       role: json['role'] ?? '',
     );
   }
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'email': email,
+        'role': role,
+      };
 }
