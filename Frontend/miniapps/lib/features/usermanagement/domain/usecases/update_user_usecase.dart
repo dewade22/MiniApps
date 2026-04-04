@@ -6,11 +6,20 @@ class UpdateUserUseCase {
   UpdateUserUseCase(this.repository);
 
   Future<void> call({
-    required String id,
-    required String name,
-    required String email,
-    required String role,
+    required String uuid,
+    required String emailAddress,
+    required String firstName,
+    required String lastName,
+    required String timeZoneId,
+    required String roleUuid,
   }) {
-    return repository.updateUser(id: id, name: name, email: email, role: role);
+    return repository.updateUser(
+      uuid: uuid,
+      emailAddress: emailAddress,
+      firstName: firstName,
+      lastName: lastName,
+      timeZoneId: timeZoneId,
+      roleUuid: roleUuid,
+    );
   }
 }
