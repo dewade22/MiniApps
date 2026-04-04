@@ -11,4 +11,39 @@ class UserRepositoryImpl implements UserRepository {
   Future<List<User>> getUsers() {
     return remoteDataSource.getUsers();
   }
+
+  @override
+  Future<void> createUser({
+    required String name,
+    required String email,
+    required String password,
+    required String role,
+  }) {
+    return remoteDataSource.createUser(
+      name: name,
+      email: email,
+      password: password,
+      role: role,
+    );
+  }
+
+  @override
+  Future<void> updateUser({
+    required String id,
+    required String name,
+    required String email,
+    required String role,
+  }) {
+    return remoteDataSource.updateUser(
+      id: id,
+      name: name,
+      email: email,
+      role: role,
+    );
+  }
+
+  @override
+  Future<void> deleteUser(String id) {
+    return remoteDataSource.deleteUser(id);
+  }
 }
