@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/user_provider.dart';
 import '../../data/datasources/user_remote_datasource.dart';
 import '../../data/repositories/user_repository_impl.dart';
+import '../../data/models/role_model.dart';
 import '../../domain/entities/user.dart';
 import '../../domain/usecases/get_users_usecase.dart';
 import '../../domain/usecases/create_user_usecase.dart';
@@ -15,13 +16,15 @@ class ManageUsersPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repo = UserRepositoryImpl(UserRemoteDataSource());
+    final dataSource = UserRemoteDataSource();
+    final repo = UserRepositoryImpl(dataSource);
     return ChangeNotifierProvider(
       create: (_) => UserProvider(
         getUsersUseCase: GetUsersUseCase(repo),
         createUserUseCase: CreateUserUseCase(repo),
         updateUserUseCase: UpdateUserUseCase(repo),
         deleteUserUseCase: DeleteUserUseCase(repo),
+        dataSource: dataSource,
       )..loadUsers(),
       child: const _ManageUsersView(),
     );
@@ -100,14 +103,14 @@ class _UserTile extends StatelessWidget {
     final provider = context.read<UserProvider>();
     return ListTile(
       leading: CircleAvatar(
-        child: Text(user.name.isNotEmpty ? user.name[0].toUpperCase() : '?'),
+        child: Text(user.firstName.isNotEmpty ? user.firstName[0].toUpperCase() : '?'),
       ),
-      title: Text(user.name),
-      subtitle: Text(user.email),
+      title: Text(user.fullName),
+      subtitle: Text(user.emailAddress),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Chip(label: Text(user.role)),
+          Chip(label: Text(user.roleName.isNotEmpty ? user.roleName : 'No Role')),
           const SizedBox(width: 4),
           IconButton(
             icon: const Icon(Icons.edit, color: Colors.blue),
@@ -133,7 +136,7 @@ class _UserTile extends StatelessWidget {
       context: context,
       builder: (_) => AlertDialog(
         title: const Text('Delete User'),
-        content: Text('Delete "${user.name}"? This cannot be undone.'),
+        content: Text('Delete "${user.fullName}"? This cannot be undone.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -142,7 +145,7 @@ class _UserTile extends StatelessWidget {
           TextButton(
             onPressed: () async {
               Navigator.pop(context);
-              final ok = await provider.deleteUser(user.id);
+              final ok = await provider.deleteUser(user.uuid);
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -172,32 +175,41 @@ class _UserFormDialog extends StatefulWidget {
 
 class _UserFormDialogState extends State<_UserFormDialog> {
   final _formKey = GlobalKey<FormState>();
-  late final TextEditingController _nameCtrl;
+  late final TextEditingController _firstNameCtrl;
+  late final TextEditingController _lastNameCtrl;
   late final TextEditingController _emailCtrl;
   late final TextEditingController _passwordCtrl;
-  String _selectedRole = 'User';
+  late final TextEditingController _timeZoneCtrl;
+  RoleModel? _selectedRole;
   bool _isSaving = false;
 
-  static const _roles = ['Admin', 'User', 'Manager'];
-
   bool get _isEdit => widget.user != null;
+
+  List<RoleModel> get _roles => widget.provider.roles;
 
   @override
   void initState() {
     super.initState();
-    _nameCtrl = TextEditingController(text: widget.user?.name ?? '');
-    _emailCtrl = TextEditingController(text: widget.user?.email ?? '');
+    _firstNameCtrl = TextEditingController(text: widget.user?.firstName ?? '');
+    _lastNameCtrl = TextEditingController(text: widget.user?.lastName ?? '');
+    _emailCtrl = TextEditingController(text: widget.user?.emailAddress ?? '');
     _passwordCtrl = TextEditingController();
-    _selectedRole = _isEdit
-        ? (_roles.contains(widget.user!.role) ? widget.user!.role : _roles.first)
-        : _roles.first;
+    _timeZoneCtrl = TextEditingController(text: widget.user?.timeZoneId ?? 'UTC');
+
+    // Pre-select the user's current role when editing
+    if (_isEdit && widget.user!.roleName.isNotEmpty) {
+      _selectedRole = _roles.where((r) => r.roleName == widget.user!.roleName).firstOrNull;
+    }
+    _selectedRole ??= _roles.isNotEmpty ? _roles.first : null;
   }
 
   @override
   void dispose() {
-    _nameCtrl.dispose();
+    _firstNameCtrl.dispose();
+    _lastNameCtrl.dispose();
     _emailCtrl.dispose();
     _passwordCtrl.dispose();
+    _timeZoneCtrl.dispose();
     super.dispose();
   }
 
@@ -212,9 +224,15 @@ class _UserFormDialogState extends State<_UserFormDialog> {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextFormField(
-                controller: _nameCtrl,
-                decoration: const InputDecoration(labelText: 'Name'),
-                validator: (v) => (v == null || v.trim().isEmpty) ? 'Name is required' : null,
+                controller: _firstNameCtrl,
+                decoration: const InputDecoration(labelText: 'First Name'),
+                validator: (v) => (v == null || v.trim().isEmpty) ? 'First name is required' : null,
+              ),
+              const SizedBox(height: 8),
+              TextFormField(
+                controller: _lastNameCtrl,
+                decoration: const InputDecoration(labelText: 'Last Name'),
+                validator: (v) => (v == null || v.trim().isEmpty) ? 'Last name is required' : null,
               ),
               const SizedBox(height: 8),
               TextFormField(
@@ -238,14 +256,24 @@ class _UserFormDialogState extends State<_UserFormDialog> {
                 ),
               ],
               const SizedBox(height: 8),
-              DropdownButtonFormField<String>(
-                value: _selectedRole,
-                decoration: const InputDecoration(labelText: 'Role'),
-                items: _roles
-                    .map((r) => DropdownMenuItem(value: r, child: Text(r)))
-                    .toList(),
-                onChanged: (v) => setState(() => _selectedRole = v!),
+              TextFormField(
+                controller: _timeZoneCtrl,
+                decoration: const InputDecoration(labelText: 'Time Zone'),
+                validator: (v) => (v == null || v.trim().isEmpty) ? 'Time zone is required' : null,
               ),
+              const SizedBox(height: 8),
+              if (_roles.isEmpty)
+                const Text('Loading roles...', style: TextStyle(color: Colors.grey))
+              else
+                DropdownButtonFormField<RoleModel>(
+                  value: _selectedRole,
+                  decoration: const InputDecoration(labelText: 'Role'),
+                  items: _roles
+                      .map((r) => DropdownMenuItem(value: r, child: Text(r.roleName)))
+                      .toList(),
+                  onChanged: (v) => setState(() => _selectedRole = v),
+                  validator: (v) => v == null ? 'Role is required' : null,
+                ),
             ],
           ),
         ),
@@ -277,17 +305,21 @@ class _UserFormDialogState extends State<_UserFormDialog> {
     bool ok;
     if (_isEdit) {
       ok = await widget.provider.updateUser(
-        id: widget.user!.id,
-        name: _nameCtrl.text.trim(),
-        email: _emailCtrl.text.trim(),
-        role: _selectedRole,
+        uuid: widget.user!.uuid,
+        emailAddress: _emailCtrl.text.trim(),
+        firstName: _firstNameCtrl.text.trim(),
+        lastName: _lastNameCtrl.text.trim(),
+        timeZoneId: _timeZoneCtrl.text.trim(),
+        roleUuid: _selectedRole!.uuid,
       );
     } else {
       ok = await widget.provider.createUser(
-        name: _nameCtrl.text.trim(),
-        email: _emailCtrl.text.trim(),
+        emailAddress: _emailCtrl.text.trim(),
+        firstName: _firstNameCtrl.text.trim(),
+        lastName: _lastNameCtrl.text.trim(),
+        timeZoneId: _timeZoneCtrl.text.trim(),
         password: _passwordCtrl.text,
-        role: _selectedRole,
+        roleUuid: _selectedRole!.uuid,
       );
     }
 

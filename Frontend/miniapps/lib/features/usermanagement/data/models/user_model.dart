@@ -2,24 +2,35 @@ import '../../domain/entities/user.dart';
 
 class UserModel extends User {
   const UserModel({
-    required super.id,
-    required super.name,
-    required super.email,
-    required super.role,
+    required super.uuid,
+    required super.emailAddress,
+    required super.firstName,
+    required super.lastName,
+    required super.fullName,
+    required super.roleName,
+    required super.timeZoneId,
+    required super.isArchived,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
-      id: json['id'].toString(),
-      name: json['name'] ?? '',
-      email: json['email'] ?? '',
-      role: json['role'] ?? '',
+      uuid: (json['uuid'] ?? '').toString(),
+      emailAddress: json['emailAddress'] ?? '',
+      firstName: json['firstName'] ?? '',
+      lastName: json['lastName'] ?? '',
+      fullName: json['fullName'] ?? '',
+      roleName: json['roleName'] ?? '',
+      timeZoneId: json['timeZoneId'] ?? 'UTC',
+      isArchived: json['isArchived'] ?? false,
     );
   }
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'email': email,
-        'role': role,
+        'emailAddress': emailAddress,
+        'firstName': firstName,
+        'lastName': lastName,
+        'roleName': roleName,
+        'timeZoneId': timeZoneId,
+        'isArchived': isArchived,
       };
 }

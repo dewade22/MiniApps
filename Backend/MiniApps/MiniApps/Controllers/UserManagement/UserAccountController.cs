@@ -260,6 +260,20 @@ namespace MiniApps.Controllers.UserManagement
             return await this.CreateTokenSignInUser(userResponse.Data);
         }
 
+        [HttpGet]
+        [Authorize(Policy.AllRoles)]
+        [Route("/v{version:apiversion}/user-account/users")]
+        public async Task<IActionResult> UserList()
+        {
+            var userAccountResponse = await this._userAccountService.SearchAsync();
+            if (userAccountResponse.IsError())
+            {
+                return this.GetApiError(userAccountResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.NotFound);
+            }
+
+            return new OkObjectResult(userAccountResponse.DtoCollection);
+        }
+
         #region private Methods
 
         private async Task<IActionResult> CreateTokenSignInUser(UserAccountDto userAccount)

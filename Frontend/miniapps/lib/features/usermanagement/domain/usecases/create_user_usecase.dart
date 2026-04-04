@@ -6,16 +6,20 @@ class CreateUserUseCase {
   CreateUserUseCase(this.repository);
 
   Future<void> call({
-    required String name,
-    required String email,
+    required String emailAddress,
+    required String firstName,
+    required String lastName,
+    required String timeZoneId,
     required String password,
-    required String role,
+    required String roleUuid,
   }) {
     return repository.createUser(
-      name: name,
-      email: email,
+      emailAddress: emailAddress,
+      firstName: firstName,
+      lastName: lastName,
+      timeZoneId: timeZoneId,
       password: password,
-      role: role,
+      roleUuid: roleUuid,
     );
   }
 }
