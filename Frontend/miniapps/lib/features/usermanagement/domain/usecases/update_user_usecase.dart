@@ -11,7 +11,6 @@ class UpdateUserUseCase {
     required String firstName,
     required String lastName,
     required String timeZoneId,
-    required String roleUuid,
   }) {
     return repository.updateUser(
       uuid: uuid,
@@ -19,7 +18,6 @@ class UpdateUserUseCase {
       firstName: firstName,
       lastName: lastName,
       timeZoneId: timeZoneId,
-      roleUuid: roleUuid,
     );
   }
 }

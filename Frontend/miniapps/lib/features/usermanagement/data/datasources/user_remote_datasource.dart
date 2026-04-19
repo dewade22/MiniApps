@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import '../../../../core/network/api_client.dart';
 import '../models/user_model.dart';
 import '../models/role_model.dart';
+import '../models/timezone_model.dart';
 
 class UserRemoteDataSource {
   Future<List<UserModel>> getUsers() async {
@@ -28,6 +29,18 @@ class UserRemoteDataSource {
     }
   }
 
+  Future<List<TimeZoneModel>> getTimeZones() async {
+    try {
+      final response = await ApiClient.instance.get('/v1/timezones');
+      final List data = response.data is List ? response.data : response.data['data'] ?? [];
+      return data.map((e) => TimeZoneModel.fromJson(e)).toList();
+    } on DioException catch (e) {
+      final message =
+          e.response?.data?['errorMessages']?[0] ?? 'Failed to load time zones';
+      throw Exception(message);
+    }
+  }
+
   Future<void> createUser({
     required String emailAddress,
     required String firstName,
@@ -37,14 +50,14 @@ class UserRemoteDataSource {
     required String roleUuid,
   }) async {
     try {
-      await ApiClient.instance.post('/v1/user-account/users', data: {
+      await ApiClient.instance.post('/v1/user-account', data: {
         'emailAddress': emailAddress,
         'firstName': firstName,
         'lastName': lastName,
         'timeZoneId': timeZoneId,
         'password': password,
       });
-      await _assignRole(emailAddress: emailAddress, roleUuid: roleUuid);
+      await assignRole(emailAddress: emailAddress, roleUuid: roleUuid);
     } on DioException catch (e) {
       final message =
           e.response?.data?['errorMessages']?[0] ?? 'Failed to create user';
@@ -58,7 +71,6 @@ class UserRemoteDataSource {
     required String firstName,
     required String lastName,
     required String timeZoneId,
-    required String roleUuid,
   }) async {
     try {
       await ApiClient.instance.put('/v1/user-account/users/$uuid', data: {
@@ -67,7 +79,6 @@ class UserRemoteDataSource {
         'lastName': lastName,
         'timeZoneId': timeZoneId,
       });
-      await _assignRole(emailAddress: emailAddress, roleUuid: roleUuid);
     } on DioException catch (e) {
       final message =
           e.response?.data?['errorMessages']?[0] ?? 'Failed to update user';
@@ -75,14 +86,20 @@ class UserRemoteDataSource {
     }
   }
 
-  Future<void> _assignRole({
+  Future<void> assignRole({
     required String emailAddress,
     required String roleUuid,
   }) async {
-    await ApiClient.instance.put('/v1/user-account/roles', data: {
-      'emailAddress': emailAddress,
-      'roleUuid': roleUuid,
-    });
+    try {
+      await ApiClient.instance.put('/v1/user-account/roles', data: {
+        'emailAddress': emailAddress,
+        'roleUuid': roleUuid,
+      });
+    } on DioException catch (e) {
+      final message =
+          e.response?.data?['errorMessages']?[0] ?? 'Failed to assign role';
+      throw Exception(message);
+    }
   }
 
   Future<void> deleteUser(String uuid) async {

@@ -34,12 +34,24 @@ class SessionService {
   Future<String?> getUserRole() async {
     final token = await getAccessToken();
     if (token == null) return null;
-    
+
     try {
       final payload = Jwt.parseJwt(token);
       return payload['role'] as String?;
     } catch (_) {
       return null;
     }
-}
+  }
+
+  Future<String?> getCurrentUserUuid() async {
+    final token = await getAccessToken();
+    if (token == null) return null;
+
+    try {
+      final payload = Jwt.parseJwt(token);
+      return payload['http://ticketingapp.info/useraccount/uuid'] as String?;
+    } catch (_) {
+      return null;
+    }
+  }
 }

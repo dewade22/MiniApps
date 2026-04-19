@@ -274,6 +274,66 @@ namespace MiniApps.Controllers.UserManagement
             return new OkObjectResult(userAccountResponse.DtoCollection);
         }
 
+        [HttpPut]
+        [Authorize(Policy.Administrator)]
+        [Route("/v{version:apiversion}/user-account/users/{uuid}")]
+        public async Task<IActionResult> UpdateUserAsync([FromRoute][Required] string uuid, [FromBody] UpdateUserRequest model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return this.GetApiError(new[] { GeneralResource.General_RequestInvalid }, (int)HttpStatusCode.BadRequest);
+            }
+
+            if (!this.IsValidTimeZone(model.TimeZoneId))
+            {
+                return this.GetApiError(new[] { GeneralResource.Timezone_Invalid }, (int)HttpStatusCode.BadRequest);
+            }
+
+            var readRequest = new GenericRequest<string> { Data = uuid };
+            var userAccountResponse = await this._userAccountService.ReadAsync(readRequest);
+            if (userAccountResponse.IsError())
+            {
+                return this.GetApiError(userAccountResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.NotFound);
+            }
+
+            var updateData = userAccountResponse.Data;
+            updateData.EmailAddress = model.EmailAddress;
+            updateData.FirstName = model.FirstName;
+            updateData.LastName = model.LastName;
+            updateData.TimeZoneId = model.TimeZoneId;
+            this.PopulatedUpdatedFields(updateData);
+
+            var updateRequest = new GenericRequest<UserAccountDto> { Data = updateData };
+            var updateResponse = await this._userAccountService.UpdateAsync(updateRequest);
+            if (updateResponse.IsError())
+            {
+                return this.GetApiError(updateResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.BadRequest);
+            }
+
+            return new OkObjectResult(updateResponse.Data.Uuid);
+        }
+
+        [HttpDelete]
+        [Authorize(Policy.Administrator)]
+        [Route("/v{version:apiversion}/user-account/users/{uuid}")]
+        public async Task<IActionResult> DeleteUserAsync([FromRoute][Required] string uuid)
+        {
+            var readRequest = new GenericRequest<string> { Data = uuid };
+            var userAccountResponse = await this._userAccountService.ReadAsync(readRequest);
+            if (userAccountResponse.IsError())
+            {
+                return this.GetApiError(userAccountResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.NotFound);
+            }
+
+            var deleteResponse = await this._userAccountService.DeleteAsync(readRequest);
+            if (deleteResponse.IsError())
+            {
+                return this.GetApiError(deleteResponse.GetMessageErrorTextArray(), (int)HttpStatusCode.BadRequest);
+            }
+
+            return this.Ok();
+        }
+
         #region private Methods
 
         private async Task<IActionResult> CreateTokenSignInUser(UserAccountDto userAccount)

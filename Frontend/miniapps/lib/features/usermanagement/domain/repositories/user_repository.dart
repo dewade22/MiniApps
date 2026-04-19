@@ -16,6 +16,9 @@ abstract class UserRepository {
     required String firstName,
     required String lastName,
     required String timeZoneId,
+  });
+  Future<void> assignRole({
+    required String emailAddress,
     required String roleUuid,
   });
   Future<void> deleteUser(String uuid);

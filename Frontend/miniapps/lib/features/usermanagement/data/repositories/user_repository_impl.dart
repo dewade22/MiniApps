@@ -38,7 +38,6 @@ class UserRepositoryImpl implements UserRepository {
     required String firstName,
     required String lastName,
     required String timeZoneId,
-    required String roleUuid,
   }) {
     return remoteDataSource.updateUser(
       uuid: uuid,
@@ -46,6 +45,16 @@ class UserRepositoryImpl implements UserRepository {
       firstName: firstName,
       lastName: lastName,
       timeZoneId: timeZoneId,
+    );
+  }
+
+  @override
+  Future<void> assignRole({
+    required String emailAddress,
+    required String roleUuid,
+  }) {
+    return remoteDataSource.assignRole(
+      emailAddress: emailAddress,
       roleUuid: roleUuid,
     );
   }
