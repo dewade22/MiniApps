@@ -36,6 +36,27 @@ namespace MiniApps.Repository.Common
             return dto;
         }
 
+        public override async Task<List<UserAccountDto>> SearchAsync()
+        {
+            var dbSet = Context.Set<ComUseraccount>();
+            var entities = await dbSet
+                .AsNoTracking()
+                .Include(x => x.ComUserinroles)
+                    .ThenInclude(r => r.Roleuu)
+                .ToListAsync();
+
+            if (entities == null) return null;
+
+            var dtos = new List<UserAccountDto>();
+            foreach (var entity in entities)
+            {
+                var dto = new UserAccountDto();
+                EntityToDtoWithRelation(entity, dto);
+                dtos.Add(dto);
+            }
+            return dtos;
+        }
+
         public async Task<bool> IsEmailExistAsync(string emailAddress)
         {
             var dbSet = Context.Set<ComUseraccount>();
