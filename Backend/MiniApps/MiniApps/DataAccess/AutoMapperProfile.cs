@@ -21,6 +21,10 @@ namespace MiniApps.DataAccess
             this.CreateMap<AcdmQuestion, QuestionDto>().ReverseMap();
             this.CreateMap<AcdmQuestionOption, QuestionOptionDto>().ReverseMap();
             this.CreateMap<AcdmQuestionGrade, QuestionGradeDto>().ReverseMap();
+            this.CreateMap<AcdmQuiz, QuizDto>().ReverseMap();
+            this.CreateMap<AcdmQuizQuestion, QuizQuestionDto>().ReverseMap();
+            this.CreateMap<AcdmQuizTopic, QuizTopicDto>().ReverseMap();
+            this.CreateMap<AcdmSchool, SchoolDto>().ReverseMap();
         }
     }
 }

@@ -1,0 +1,3 @@
+ALTER TABLE acdm_quiz
+    ADD COLUMN IF NOT EXISTS assessment_type     VARCHAR(30)  NOT NULL DEFAULT 'quiz',
+    ADD COLUMN IF NOT EXISTS show_score_immediately BOOLEAN  NOT NULL DEFAULT TRUE;

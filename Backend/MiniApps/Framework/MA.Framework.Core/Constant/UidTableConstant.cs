@@ -14,5 +14,9 @@
         public const string Question = "academicquestion";
         public const string QuestionOption = "academicquestionoption";
         public const string QuestionGrade = "academicquestiongrade";
+        public const string Quiz = "academicquiz";
+        public const string QuizQuestion = "academicquizquestion";
+        public const string QuizTopic = "academicquiztopic";
+        public const string School = "academicschool";
     }
 }

@@ -16,6 +16,11 @@
     <EmbeddedResource Include="Academic\Feb26\Script006 - Add grade_uuid to acdm_subjects.sql" />
     <EmbeddedResource Include="Academic\Feb26\Script007 - Create Table acdm_question_grade.sql" />
     <EmbeddedResource Include="Academic\Feb26\Script008 - Alter correct_option to text.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script009 - Create Table acdm_quiz.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script010 - Add assessment_type to acdm_quiz.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script011 - Create Table acdm_quiz_topic.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script012 - Create Table acdm_school.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script013 - Add school_uuid to acdm_quiz.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UserAccount\Feb26\Script001 - Create Table.sql" />

@@ -166,6 +166,74 @@ namespace MiniApps.Repository.Academic
             return dto;
         }
 
+        public async Task<List<QuestionDto>> SearchEligibleWithDetailsAsync(
+            string gradeUuid, IEnumerable<string> topicUuids, string subjectUuid)
+        {
+            var topicList = topicUuids?.Where(t => !string.IsNullOrEmpty(t)).ToList()
+                            ?? new List<string>();
+
+            var query = Context.Set<AcdmQuestion>()
+                .AsNoTracking()
+                .Include(q => q.AcdmQuestionOptions)
+                .Include(q => q.AcdmQuestionGrades)
+                    .ThenInclude(g => g.GradeUu)
+                .Where(q => q.AcdmQuestionGrades.Any(g => g.GradeUuid == gradeUuid));
+
+            if (topicList.Any())
+            {
+                query = query.Where(q => topicList.Contains(q.TopicUuid));
+            }
+            else if (!string.IsNullOrEmpty(subjectUuid))
+            {
+                query = query.Where(q =>
+                    Context.Set<AcdmTopic>()
+                        .Any(t => t.Uuid == q.TopicUuid && t.SubjectUuid == subjectUuid));
+            }
+
+            var entities = await query.ToListAsync();
+
+            var dtos = new List<QuestionDto>();
+            foreach (var entity in entities)
+            {
+                var dto = new QuestionDto();
+                EntityToDtoWithRelation(entity, dto);
+                dtos.Add(dto);
+            }
+            return dtos;
+        }
+
+        public async Task<List<(string Uuid, string Difficulty)>> SearchEligibleAsync(
+            string gradeUuid, IEnumerable<string> topicUuids, string subjectUuid)
+        {
+            var topicList = topicUuids?.Where(t => !string.IsNullOrEmpty(t)).ToList()
+                            ?? new List<string>();
+
+            var query = Context.Set<AcdmQuestion>()
+                .AsNoTracking()
+                .Include(q => q.AcdmQuestionGrades)
+                .Where(q => q.AcdmQuestionGrades.Any(g => g.GradeUuid == gradeUuid));
+
+            if (topicList.Any())
+            {
+                query = query.Where(q => topicList.Contains(q.TopicUuid));
+            }
+            else if (!string.IsNullOrEmpty(subjectUuid))
+            {
+                query = query.Where(q =>
+                    Context.Set<AcdmTopic>()
+                        .Any(t => t.Uuid == q.TopicUuid && t.SubjectUuid == subjectUuid));
+            }
+
+            var entities = await query.ToListAsync();
+
+            return entities
+                .Select(q => (
+                    q.Uuid,
+                    q.AcdmQuestionGrades.First(g => g.GradeUuid == gradeUuid).Difficulty
+                ))
+                .ToList();
+        }
+
         protected override void EntityToDtoWithRelation(AcdmQuestion entity, QuestionDto dto)
         {
             Mapper.Map(entity, dto);

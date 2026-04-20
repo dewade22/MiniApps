@@ -1,0 +1,23 @@
+CREATE TABLE acdm_school (
+    uuid            VARCHAR(100)    NOT NULL,
+    name            VARCHAR(200)    NOT NULL,
+    code            VARCHAR(20)     NOT NULL,
+    address         TEXT            NOT NULL,
+    city            VARCHAR(100)    NOT NULL,
+    province        VARCHAR(100)    NOT NULL,
+    postal_code     VARCHAR(10)     NOT NULL,
+    phone           VARCHAR(20)     NOT NULL,
+    email           VARCHAR(150)    NOT NULL,
+    website         VARCHAR(200)    NULL,
+    principal_name  VARCHAR(150)    NOT NULL,
+    accreditation   VARCHAR(20)     NOT NULL DEFAULT 'Not Yet',
+    school_type     VARCHAR(20)     NOT NULL DEFAULT 'Public',
+    education_level VARCHAR(10)     NOT NULL,
+    is_active       BOOLEAN         NOT NULL DEFAULT TRUE,
+    createdby       VARCHAR(100)    NOT NULL,
+    createdat       TIMESTAMP       NOT NULL,
+    updatedby       VARCHAR(100)    NOT NULL,
+    updatedat       TIMESTAMP       NOT NULL,
+    CONSTRAINT acdm_school_pkey PRIMARY KEY (uuid),
+    CONSTRAINT acdm_school_code_unique UNIQUE (code)
+);
