@@ -20,4 +20,6 @@ public partial class AcdmTopic
     public DateTime Updatedat { get; set; }
 
     public virtual AcdmSubject? SubjectUu { get; set; }
+
+    public virtual ICollection<AcdmQuestion> AcdmQuestions { get; set; } = new List<AcdmQuestion>();
 }

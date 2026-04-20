@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import '../../../../core/network/api_client.dart';
 import '../models/grade_model.dart';
+import '../models/question_model.dart';
 import '../models/subject_model.dart';
 import '../models/topic_model.dart';
 
@@ -120,6 +121,67 @@ class AcademicRemoteDataSource {
       await ApiClient.instance.delete('/v1/topic/$uuid');
     } on DioException catch (e) {
       throw Exception(e.response?.data?['errorMessages']?[0] ?? 'Failed to delete topic');
+    }
+  }
+
+  // ── Question ──────────────────────────────────────────────────────────────
+
+  Future<List<QuestionModel>> getQuestionsByTopic(String topicUuid) async {
+    try {
+      final response = await ApiClient.instance.get('/v1/questions/bytopic', queryParameters: {'topicId': topicUuid});
+      final List data = response.data is List ? response.data : response.data['data'] ?? [];
+      return data.map((e) => QuestionModel.fromJson(e)).toList();
+    } on DioException catch (e) {
+      throw Exception(e.response?.data?['errorMessages']?[0] ?? 'Failed to load questions');
+    }
+  }
+
+  Future<void> createQuestion({
+    required String questionText,
+    required String? topicUuid,
+    required String correctOption,
+    required List<Map<String, String>> options,
+    required List<Map<String, String>> grades,
+  }) async {
+    try {
+      await ApiClient.instance.post('/v1/question', data: {
+        'questionText': questionText,
+        'topicUuid': topicUuid,
+        'correctOption': correctOption,
+        'options': options,
+        'grades': grades,
+      });
+    } on DioException catch (e) {
+      throw Exception(e.response?.data?['errorMessages']?[0] ?? 'Failed to create question');
+    }
+  }
+
+  Future<void> updateQuestion({
+    required String uuid,
+    required String questionText,
+    required String? topicUuid,
+    required String correctOption,
+    required List<Map<String, String>> options,
+    required List<Map<String, String>> grades,
+  }) async {
+    try {
+      await ApiClient.instance.put('/v1/question/$uuid', data: {
+        'questionText': questionText,
+        'topicUuid': topicUuid,
+        'correctOption': correctOption,
+        'options': options,
+        'grades': grades,
+      });
+    } on DioException catch (e) {
+      throw Exception(e.response?.data?['errorMessages']?[0] ?? 'Failed to update question');
+    }
+  }
+
+  Future<void> deleteQuestion(String uuid) async {
+    try {
+      await ApiClient.instance.delete('/v1/question/$uuid');
+    } on DioException catch (e) {
+      throw Exception(e.response?.data?['errorMessages']?[0] ?? 'Failed to delete question');
     }
   }
 }

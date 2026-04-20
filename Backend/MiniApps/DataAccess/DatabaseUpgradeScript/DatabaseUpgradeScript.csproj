@@ -11,6 +11,11 @@
     <EmbeddedResource Include="Academic\Feb26\Script001 - Create Table acdm_grades.sql" />
     <EmbeddedResource Include="Academic\Feb26\Script002 - Create Table acdm_subjects.sql" />
     <EmbeddedResource Include="Academic\Feb26\Script003 - Create Table acdm_topics.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script004 - Create Table acdm_question.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script005 - Create Table acdm_question_option.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script006 - Add grade_uuid to acdm_subjects.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script007 - Create Table acdm_question_grade.sql" />
+    <EmbeddedResource Include="Academic\Feb26\Script008 - Alter correct_option to text.sql" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UserAccount\Feb26\Script001 - Create Table.sql" />

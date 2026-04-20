@@ -1,4 +1,4 @@
-﻿using MiniApps.Repository.Academic;
+using MiniApps.Repository.Academic;
 using MiniApps.Repository.Common;
 using MiniApps.RepositoryInterface.Academic;
 using MiniApps.RepositoryInterface.Common;
@@ -14,6 +14,7 @@ namespace MiniApps
         public static void SetupRepositories(IServiceCollection services)
         {
             services.AddTransient<IGradeRepository, GradeRepository>();
+            services.AddTransient<IQuestionRepository, QuestionRepository>();
             services.AddTransient<IJwtTokenManagerRepository, JwtTokenManagerRepository>();
             services.AddTransient<IRoleRepository, RoleRepository>();
             services.AddTransient<ITopicRepository, TopicRepository>();
@@ -27,6 +28,7 @@ namespace MiniApps
         public static void SetupServices(IServiceCollection services)
         {
             services.AddScoped<IGradeService, GradeService>();
+            services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<ISubjectService, SubjectService>();
             services.AddScoped<ITopicService, TopicService>();

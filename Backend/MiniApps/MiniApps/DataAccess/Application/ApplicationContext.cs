@@ -21,6 +21,12 @@ public partial class ApplicationContext : DbContext
 
     public virtual DbSet<AcdmTopic> AcdmTopics { get; set; }
 
+    public virtual DbSet<AcdmQuestion> AcdmQuestions { get; set; }
+
+    public virtual DbSet<AcdmQuestionOption> AcdmQuestionOptions { get; set; }
+
+    public virtual DbSet<AcdmQuestionGrade> AcdmQuestionGrades { get; set; }
+
     public virtual DbSet<ComRole> ComRoles { get; set; }
 
     public virtual DbSet<ComUseraccount> ComUseraccounts { get; set; }
@@ -105,6 +111,112 @@ public partial class ApplicationContext : DbContext
                 .HasForeignKey(d => d.SubjectUuid)
                 .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("acdm_topics_subject_uuid_fkey");
+        });
+
+        modelBuilder.Entity<AcdmQuestion>(entity =>
+        {
+            entity.HasKey(e => e.Uuid).HasName("acdm_question_pkey");
+
+            entity.ToTable("acdm_question");
+
+            entity.Property(e => e.Uuid)
+                .HasMaxLength(100)
+                .HasColumnName("uuid");
+            entity.Property(e => e.QuestionText)
+                .HasColumnName("question_text");
+            entity.Property(e => e.TopicUuid)
+                .HasMaxLength(100)
+                .HasColumnName("topic_uuid");
+            entity.Property(e => e.CorrectOption)
+                .HasColumnName("correct_option");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
+            entity.Property(e => e.Createdby)
+                .HasMaxLength(100)
+                .HasColumnName("createdby");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
+            entity.Property(e => e.Updatedby)
+                .HasMaxLength(100)
+                .HasColumnName("updatedby");
+
+            entity.HasOne(d => d.TopicUu).WithMany(p => p.AcdmQuestions)
+                .HasForeignKey(d => d.TopicUuid)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("acdm_question_topic_uuid_fkey");
+        });
+
+        modelBuilder.Entity<AcdmQuestionOption>(entity =>
+        {
+            entity.HasKey(e => e.Uuid).HasName("acdm_question_option_pkey");
+
+            entity.ToTable("acdm_question_option");
+
+            entity.Property(e => e.Uuid)
+                .HasMaxLength(100)
+                .HasColumnName("uuid");
+            entity.Property(e => e.QuestionUuid)
+                .HasMaxLength(100)
+                .HasColumnName("question_uuid");
+            entity.Property(e => e.Label)
+                .HasMaxLength(1)
+                .HasColumnName("label");
+            entity.Property(e => e.OptionText)
+                .HasColumnName("option_text");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
+            entity.Property(e => e.Createdby)
+                .HasMaxLength(100)
+                .HasColumnName("createdby");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
+            entity.Property(e => e.Updatedby)
+                .HasMaxLength(100)
+                .HasColumnName("updatedby");
+
+            entity.HasOne(d => d.QuestionUu).WithMany(p => p.AcdmQuestionOptions)
+                .HasForeignKey(d => d.QuestionUuid)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("acdm_question_option_question_uuid_fkey");
+        });
+
+        modelBuilder.Entity<AcdmQuestionGrade>(entity =>
+        {
+            entity.HasKey(e => e.Uuid).HasName("acdm_question_grade_pkey");
+
+            entity.ToTable("acdm_question_grade");
+
+            entity.HasIndex(e => new { e.QuestionUuid, e.GradeUuid })
+                .IsUnique()
+                .HasDatabaseName("acdm_question_grade_unique");
+
+            entity.Property(e => e.Uuid)
+                .HasMaxLength(100)
+                .HasColumnName("uuid");
+            entity.Property(e => e.QuestionUuid)
+                .HasMaxLength(100)
+                .HasColumnName("question_uuid");
+            entity.Property(e => e.GradeUuid)
+                .HasMaxLength(100)
+                .HasColumnName("grade_uuid");
+            entity.Property(e => e.Difficulty)
+                .HasMaxLength(10)
+                .HasDefaultValue("medium")
+                .HasColumnName("difficulty");
+            entity.Property(e => e.Createdat).HasColumnName("createdat");
+            entity.Property(e => e.Createdby)
+                .HasMaxLength(100)
+                .HasColumnName("createdby");
+            entity.Property(e => e.Updatedat).HasColumnName("updatedat");
+            entity.Property(e => e.Updatedby)
+                .HasMaxLength(100)
+                .HasColumnName("updatedby");
+
+            entity.HasOne(d => d.QuestionUu).WithMany(p => p.AcdmQuestionGrades)
+                .HasForeignKey(d => d.QuestionUuid)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("acdm_question_grade_question_fkey");
+
+            entity.HasOne(d => d.GradeUu).WithMany(p => p.AcdmQuestionGrades)
+                .HasForeignKey(d => d.GradeUuid)
+                .OnDelete(DeleteBehavior.Cascade)
+                .HasConstraintName("acdm_question_grade_grade_fkey");
         });
 
         modelBuilder.Entity<ComRole>(entity =>

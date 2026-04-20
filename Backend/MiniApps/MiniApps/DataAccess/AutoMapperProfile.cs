@@ -18,6 +18,9 @@ namespace MiniApps.DataAccess
             this.CreateMap<AcdmGrade, GradeDto>().ReverseMap();
             this.CreateMap<AcdmSubject, SubjectDto>().ReverseMap();
             this.CreateMap<AcdmTopic, TopicDto>().ReverseMap();
+            this.CreateMap<AcdmQuestion, QuestionDto>().ReverseMap();
+            this.CreateMap<AcdmQuestionOption, QuestionOptionDto>().ReverseMap();
+            this.CreateMap<AcdmQuestionGrade, QuestionGradeDto>().ReverseMap();
         }
     }
 }

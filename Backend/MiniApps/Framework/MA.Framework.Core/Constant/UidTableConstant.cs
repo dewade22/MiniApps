@@ -11,5 +11,8 @@
         public const string Grade = "academicgrade";
         public const string Subject = "academicsubject";
         public const string Topic = "academictopic";
+        public const string Question = "academicquestion";
+        public const string QuestionOption = "academicquestionoption";
+        public const string QuestionGrade = "academicquestiongrade";
     }
 }
