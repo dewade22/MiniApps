@@ -3,6 +3,7 @@ import '../../../features/usermanagement/presentation/pages/users_page.dart';
 import '../../../features/academic/presentation/pages/grades_page.dart';
 import '../../../features/academic/presentation/pages/subjects_page.dart';
 import '../../../features/academic/presentation/pages/topics_page.dart';
+import '../../../features/academic/presentation/pages/question_bank_page.dart';
 import '../../../features/auth/presentation/pages/login_page.dart';
 import '../../../core/services/session_service.dart';
 
@@ -16,6 +17,7 @@ class AdminHomePage extends StatelessWidget {
       _MenuItem(title: 'Grades', icon: Icons.school, page: const GradesPage()),
       _MenuItem(title: 'Subjects', icon: Icons.book, page: const SubjectsPage()),
       _MenuItem(title: 'Topics', icon: Icons.topic, page: const TopicsPage()),
+      _MenuItem(title: 'Question Bank', icon: Icons.quiz, page: const QuestionBankPage()),
     ];
     return Scaffold(
       appBar: AppBar(

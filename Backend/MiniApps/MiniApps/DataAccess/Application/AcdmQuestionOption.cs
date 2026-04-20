@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 
 namespace MiniApps.DataAccess.Application;
 
-public partial class AcdmGrade
+public partial class AcdmQuestionOption
 {
     public string Uuid { get; set; } = null!;
 
-    public string Name { get; set; } = null!;
+    public string QuestionUuid { get; set; } = null!;
+
+    public string Label { get; set; } = null!;
+
+    public string OptionText { get; set; } = null!;
 
     public string Createdby { get; set; } = null!;
 
@@ -17,5 +20,5 @@ public partial class AcdmGrade
 
     public DateTime Updatedat { get; set; }
 
-    public virtual ICollection<AcdmQuestionGrade> AcdmQuestionGrades { get; set; } = new List<AcdmQuestionGrade>();
+    public virtual AcdmQuestion QuestionUu { get; set; } = null!;
 }

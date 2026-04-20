@@ -20,8 +20,7 @@ namespace MiniApps.Controllers.Academic
     {
         private readonly ISubjectService _subjectService;
 
-        public SubjectController(
-            ISubjectService subjectService)
+        public SubjectController(ISubjectService subjectService)
         {
             this._subjectService = subjectService;
         }
